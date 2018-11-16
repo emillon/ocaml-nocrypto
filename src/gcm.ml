@@ -7,8 +7,6 @@ open Uncommon
 
 module I128 = struct
 
-  open Int64
-
   module I64 = Numeric.Int64
 
   type t = int64 * int64
