@@ -1,6 +1,8 @@
 open Lwt
 open Nocrypto
 
+[@@@ocaml.warning "-3"] (* Lwt_sequence *)
+
 let chunk  = 32
 and period = 30
 and device = Nocrypto_entropy_unix.sys_rng
