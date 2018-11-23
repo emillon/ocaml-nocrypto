@@ -5,9 +5,14 @@ let detect_accelerate () =
   | Ok r -> r
   | Error _ -> false
 
+let parse_bool s =
+  try bool_of_string s with
+  | Invalid_argument _ ->
+      C.die "Not a boolean: %s" s
+
 let use_accelerate () =
   match Sys.getenv "NOCRYPTO_ACCELERATE" with
-  | s -> bool_of_string s
+  | s -> parse_bool s
   | exception Not_found -> detect_accelerate ()
 
 let flags () =
