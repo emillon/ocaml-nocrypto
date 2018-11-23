@@ -1,8 +1,4 @@
 (copy_files ../native/*)
-(copy_files ../native/hash/*)
-(copy_files ../native/aes/*)
-(copy_files ../native/des/*)
-(copy_files ../native/ghash/*)
 
 (library
  (name nocrypto_xen)
