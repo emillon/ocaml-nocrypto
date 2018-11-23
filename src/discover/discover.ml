@@ -16,10 +16,16 @@ let use_accelerate () =
   | exception Not_found -> detect_accelerate ()
 
 let flags () =
-  if use_accelerate () then
-    ["-DACCELERATE -mssse3 -maes -mpclmul"]
-  else
-    []
+  let accelerate_flags =
+    if use_accelerate () then
+      ["-DACCELERATE -mssse3 -maes -mpclmul"]
+    else
+      []
+  in
+  let default_flags =
+    ["-D_DEFAULT_SOURCE --std=c99 -Wall -Wextra -O3 -Wno-implicit-fallthrough"]
+  in
+  default_flags @ accelerate_flags
 
 let () =
   let output_path = ref "" in
