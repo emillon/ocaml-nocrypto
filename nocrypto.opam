@@ -20,7 +20,6 @@ build-test: [
 depends: [
   "dune" {build}
   "cpuid" {build}
-  "ppx_deriving" {build}
   "ppx_sexp_conv"
   "ounit" {test}
   "cstruct" {>="3.0.0"}
