@@ -1,7 +1,10 @@
 open Lwt
 open Nocrypto
 
-[@@@ocaml.warning "-3"] (* Lwt_sequence *)
+[@@@ocaml.warning "-3"]
+(* Used for hooks, https://github.com/ocsigen/lwt/issues/573 *)
+module Lwt_sequence = Lwt_sequence
+[@@@ocaml.warning "+3"]
 
 let chunk  = 32
 and period = 30
