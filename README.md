@@ -20,13 +20,8 @@ delegating to AES-NI.
 ## Build
 
 ```bash
-./pkg/pkg.ml build
-  --with-unix BOOL
-  --with-lwt BOOL
-  --xen BOOL
-  --freestanding BOOL
-
-./pkg/pkg.ml test
+dune build
+dune runtest
 ```
 
 ## FAQ
@@ -59,11 +54,10 @@ Program terminated with signal SIGILL, Illegal instruction.
 autodetection yet. You compiled the library with acceleration, but you are using
 it on a machine that does not support it.
 
-`pkg/pkg.ml build --accelerate false` force-disables non-portable code.
+`NOCRYPTO_ACCELERATE=false` force-disables non-portable code.
 
-`pkg/pkg.ml build --accelerate true` force-enables non-portable code.
+`NOCRYPTO_ACCELERATE=true` force-enables non-portable code.
 
-The flag can also be set via the `NOCRYPTO_ACCELERATE` environment variable.
-When unset, it maches the capabilities of the build machine.
+When this environment variable is unset, it matches the capabilities of the build machine.
 
 [![Build Status](https://travis-ci.org/mirleft/ocaml-nocrypto.svg?branch=master)](https://travis-ci.org/mirleft/ocaml-nocrypto)
