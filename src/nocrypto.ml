@@ -1,3 +1,8 @@
+(* Manual packing is necessary because there some inter-module dependencies
+ * which prevent individual mli files to work.
+ * https://github.com/mirage/ocaml-nocrypto/issues/3
+ *)
+
 module Uncommon = Uncommon
 module Base64 = Base64
 module Hash = Hash
